@@ -6,7 +6,7 @@
 
 StrangeWorkerThread::StrangeWorkerThread(QObject *)
 {
-    strangeScene = new QPixmap(500,500);
+    strangeScene = new QPixmap(300,300);
     strangePainter = new QPainter(strangeScene);
 
     strangePainter->setPen(QColor(0,0,255,10));
@@ -18,8 +18,6 @@ StrangeWorkerThread::StrangeWorkerThread(QObject *)
 
 StrangeWorkerThread::~StrangeWorkerThread(){
     this->terminate();
-    delete strangeScene;
-    delete strangePainter;
 }
 
 void StrangeWorkerThread::updateScene(){
@@ -43,9 +41,9 @@ void StrangeWorkerThread::run(){
             // draw attractor
             QPointF p;
             foreach (p, mainGen.points){
-                QPointF newp = p * 100; // amplify
-                newp.rx() += 250; // center
-                newp.ry() += 250;
+                QPointF newp = p * 80; // amplify
+                newp.rx() += 150; // center
+                newp.ry() += 150;
 
                 strangePainter->drawPoint(newp);
             }
