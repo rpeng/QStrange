@@ -1,9 +1,9 @@
 #ifndef STRANGESPINNER_H
 #define STRANGESPINNER_H
 
-#include <QDoubleSpinBox>
+#include <QSpinBox>
 
-class StrangeSpinner : public QDoubleSpinBox
+class StrangeSpinner : public QSpinBox
 {
     Q_OBJECT
 

@@ -34,10 +34,10 @@ void strangeWindow::paintPressed(){
 
 void strangeWindow::sendUpdate(){
     // propogate
-    double a = ui->spin_a->value();
-    double b = ui->spin_b->value();
-    double c = ui->spin_c->value();
-    double d = ui->spin_d->value();
+    double a = static_cast<double>(ui->spin_a->value())/100.0f;
+    double b = static_cast<double>(ui->spin_b->value())/100.0f;
+    double c = static_cast<double>(ui->spin_c->value())/100.0f;
+    double d = static_cast<double>(ui->spin_d->value())/100.0f;
 
     mainWidget->sendUpdate(a,b,c,d);
 }

@@ -13,7 +13,7 @@ signals:
     void updateGenerator();
 
 public slots:
-    void syncValue(double value);
+    void syncValue(int value);
 
 };
 

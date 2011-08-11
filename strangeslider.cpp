@@ -8,7 +8,7 @@ StrangeSlider::StrangeSlider(QWidget *parent) :
     this->setMinimum(-300);
 }
 
-void StrangeSlider::syncValue(double value){
-    this->setValue(floor(value * 100.0f));
+void StrangeSlider::syncValue(int value){
+    this->setValue(value);
     emit updateGenerator();
 }

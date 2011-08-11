@@ -111,18 +111,6 @@
             </property>
            </widget>
           </item>
-          <item row="0" column="2">
-           <widget class="StrangeSpinner" name="spin_a"/>
-          </item>
-          <item row="1" column="2">
-           <widget class="StrangeSpinner" name="spin_b"/>
-          </item>
-          <item row="2" column="2">
-           <widget class="StrangeSpinner" name="spin_c"/>
-          </item>
-          <item row="3" column="2">
-           <widget class="StrangeSpinner" name="spin_d"/>
-          </item>
           <item row="4" column="1">
            <spacer name="verticalSpacer">
             <property name="orientation">
@@ -135,6 +123,18 @@
              </size>
             </property>
            </spacer>
+          </item>
+          <item row="3" column="2">
+           <widget class="StrangeSpinner" name="spin_d"/>
+          </item>
+          <item row="2" column="2">
+           <widget class="StrangeSpinner" name="spin_c"/>
+          </item>
+          <item row="1" column="2">
+           <widget class="StrangeSpinner" name="spin_b"/>
+          </item>
+          <item row="0" column="2">
+           <widget class="StrangeSpinner" name="spin_a"/>
           </item>
          </layout>
         </item>
@@ -150,7 +150,7 @@
      <x>0</x>
      <y>0</y>
      <width>400</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
@@ -159,19 +159,20 @@
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
   <customwidget>
-   <class>StrangeSpinner</class>
-   <extends>QDoubleSpinBox</extends>
-   <header>strangespinner.h</header>
-   <slots>
-    <slot>syncValue(int)</slot>
-   </slots>
-  </customwidget>
-  <customwidget>
    <class>StrangeSlider</class>
    <extends>QSlider</extends>
    <header>strangeslider.h</header>
    <slots>
     <slot>syncValue(double)</slot>
+    <slot>syncValue(int)</slot>
+   </slots>
+  </customwidget>
+  <customwidget>
+   <class>StrangeSpinner</class>
+   <extends>QSpinBox</extends>
+   <header>strangespinner.h</header>
+   <slots>
+    <slot>syncValue(int)</slot>
    </slots>
   </customwidget>
  </customwidgets>
@@ -184,28 +185,28 @@
    <slot>syncValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>251</x>
-     <y>65</y>
+     <x>296</x>
+     <y>83</y>
     </hint>
     <hint type="destinationlabel">
-     <x>363</x>
-     <y>67</y>
+     <x>349</x>
+     <y>84</y>
     </hint>
    </hints>
   </connection>
   <connection>
    <sender>spin_a</sender>
-   <signal>valueChanged(double)</signal>
+   <signal>valueChanged(int)</signal>
    <receiver>slider_a</receiver>
-   <slot>syncValue(double)</slot>
+   <slot>syncValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>356</x>
-     <y>78</y>
+     <x>349</x>
+     <y>94</y>
     </hint>
     <hint type="destinationlabel">
-     <x>203</x>
-     <y>68</y>
+     <x>282</x>
+     <y>86</y>
     </hint>
    </hints>
   </connection>
@@ -216,28 +217,28 @@
    <slot>syncValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>252</x>
-     <y>96</y>
+     <x>298</x>
+     <y>126</y>
     </hint>
     <hint type="destinationlabel">
-     <x>351</x>
-     <y>101</y>
+     <x>367</x>
+     <y>121</y>
     </hint>
    </hints>
   </connection>
   <connection>
    <sender>spin_b</sender>
-   <signal>valueChanged(double)</signal>
+   <signal>valueChanged(int)</signal>
    <receiver>slider_b</receiver>
-   <slot>syncValue(double)</slot>
+   <slot>syncValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>351</x>
-     <y>90</y>
+     <x>340</x>
+     <y>131</y>
     </hint>
     <hint type="destinationlabel">
-     <x>296</x>
-     <y>90</y>
+     <x>269</x>
+     <y>132</y>
     </hint>
    </hints>
   </connection>
@@ -248,28 +249,28 @@
    <slot>syncValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>261</x>
-     <y>119</y>
+     <x>277</x>
+     <y>156</y>
     </hint>
     <hint type="destinationlabel">
-     <x>353</x>
-     <y>125</y>
+     <x>370</x>
+     <y>163</y>
     </hint>
    </hints>
   </connection>
   <connection>
    <sender>spin_c</sender>
-   <signal>valueChanged(double)</signal>
+   <signal>valueChanged(int)</signal>
    <receiver>slider_c</receiver>
-   <slot>syncValue(double)</slot>
+   <slot>syncValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>366</x>
-     <y>116</y>
+     <x>345</x>
+     <y>154</y>
     </hint>
     <hint type="destinationlabel">
-     <x>310</x>
-     <y>122</y>
+     <x>245</x>
+     <y>160</y>
     </hint>
    </hints>
   </connection>
@@ -280,28 +281,28 @@
    <slot>syncValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>264</x>
-     <y>144</y>
+     <x>286</x>
+     <y>196</y>
     </hint>
     <hint type="destinationlabel">
-     <x>351</x>
-     <y>149</y>
+     <x>333</x>
+     <y>195</y>
     </hint>
    </hints>
   </connection>
   <connection>
    <sender>spin_d</sender>
-   <signal>valueChanged(double)</signal>
+   <signal>valueChanged(int)</signal>
    <receiver>slider_d</receiver>
-   <slot>syncValue(double)</slot>
+   <slot>syncValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>347</x>
-     <y>142</y>
+     <x>331</x>
+     <y>208</y>
     </hint>
     <hint type="destinationlabel">
-     <x>302</x>
-     <y>144</y>
+     <x>244</x>
+     <y>204</y>
     </hint>
    </hints>
   </connection>
