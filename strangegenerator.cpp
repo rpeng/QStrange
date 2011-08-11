@@ -26,7 +26,7 @@ StrangeGenerator::StrangeGenerator()
       1.5, -1.8, 1.6, 0.9
       */
 
-    totalIterations = 300000;
+    totalIterations = 500000;
 
     initialize();
 }
@@ -39,6 +39,15 @@ QPointF StrangeGenerator::strangeFunction(QPointF input){
     float new_y = sin(x*a) + d*sin(y*a);
 
     return QPointF(new_x,new_y);
+}
+
+void StrangeGenerator::setVars(float _a, float _b, float _c, float _d){
+    a = _a;
+    b = _b;
+    c = _c;
+    d = _d;
+    current = QPointF(0.1,0.1);
+    initialize();
 }
 
 void StrangeGenerator::initialize(){

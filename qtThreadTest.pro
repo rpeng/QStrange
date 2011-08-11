@@ -13,10 +13,16 @@ TEMPLATE = app
 SOURCES += main.cpp\
         strangewindow.cpp \
     strangegenerator.cpp \
-    strangewidget.cpp
+    strangewidget.cpp \
+    strangeworkerthread.cpp \
+    strangespinner.cpp \
+    strangeslider.cpp
 
 HEADERS  += strangewindow.h \
     strangegenerator.h \
-    strangewidget.h
+    strangewidget.h \
+    strangeworkerthread.h \
+    strangespinner.h \
+    strangeslider.h
 
 FORMS    += strangewindow.ui

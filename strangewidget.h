@@ -9,23 +9,25 @@
 #include <QLabel>
 
 #include "strangegenerator.h"
+#include "strangeworkerthread.h"
 
 
 class strangewidget : public QWidget
 {
     Q_OBJECT
+
+public slots:
+    virtual void drawAttractor();
+
 public:
     explicit strangewidget(QWidget *parent = 0);
     ~strangewidget();
 
-    virtual void drawAttractor(QList<QPointF> points);
-    virtual void doPaint();
+    virtual void sendUpdate(float,float,float,float);
 
 private:
-    QPixmap *strangeScene;
-    QPainter *strangePainter;
+    StrangeWorkerThread mainThread;
     QLabel *mainLabel;
-    StrangeGenerator mainGen;
 };
 
 #endif // STRANGEWIDGET_H

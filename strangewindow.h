@@ -19,6 +19,7 @@ public:
 
 public slots:
     virtual void paintPressed();
+    virtual void sendUpdate();
 
 private:
     Ui::strangeWindow *ui;

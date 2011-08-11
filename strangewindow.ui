@@ -18,11 +18,127 @@
     <item>
      <layout class="QHBoxLayout" name="mainLayout">
       <item>
-       <widget class="QPushButton" name="paintButton">
-        <property name="text">
-         <string>Paint</string>
-        </property>
-       </widget>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QPushButton" name="paintButton">
+          <property name="minimumSize">
+           <size>
+            <width>100</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Force Paint</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QGridLayout" name="gridLayout">
+          <property name="sizeConstraint">
+           <enum>QLayout::SetMaximumSize</enum>
+          </property>
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_a">
+            <property name="text">
+             <string>A</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_b">
+            <property name="text">
+             <string>B</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_c">
+            <property name="text">
+             <string>C</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="label_d">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>D</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="StrangeSlider" name="slider_a">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="StrangeSlider" name="slider_b">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="StrangeSlider" name="slider_c">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="StrangeSlider" name="slider_d">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="StrangeSpinner" name="spin_a"/>
+          </item>
+          <item row="1" column="2">
+           <widget class="StrangeSpinner" name="spin_b"/>
+          </item>
+          <item row="2" column="2">
+           <widget class="StrangeSpinner" name="spin_c"/>
+          </item>
+          <item row="3" column="2">
+           <widget class="StrangeSpinner" name="spin_d"/>
+          </item>
+          <item row="4" column="1">
+           <spacer name="verticalSpacer">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+       </layout>
       </item>
      </layout>
     </item>
@@ -38,17 +154,156 @@
     </rect>
    </property>
   </widget>
-  <widget class="QToolBar" name="mainToolBar">
-   <attribute name="toolBarArea">
-    <enum>TopToolBarArea</enum>
-   </attribute>
-   <attribute name="toolBarBreak">
-    <bool>false</bool>
-   </attribute>
-  </widget>
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>StrangeSpinner</class>
+   <extends>QDoubleSpinBox</extends>
+   <header>strangespinner.h</header>
+   <slots>
+    <slot>syncValue(int)</slot>
+   </slots>
+  </customwidget>
+  <customwidget>
+   <class>StrangeSlider</class>
+   <extends>QSlider</extends>
+   <header>strangeslider.h</header>
+   <slots>
+    <slot>syncValue(double)</slot>
+   </slots>
+  </customwidget>
+ </customwidgets>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>slider_a</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>spin_a</receiver>
+   <slot>syncValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>251</x>
+     <y>65</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>363</x>
+     <y>67</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>spin_a</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>slider_a</receiver>
+   <slot>syncValue(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>356</x>
+     <y>78</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>203</x>
+     <y>68</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>slider_b</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>spin_b</receiver>
+   <slot>syncValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>252</x>
+     <y>96</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>351</x>
+     <y>101</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>spin_b</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>slider_b</receiver>
+   <slot>syncValue(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>351</x>
+     <y>90</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>296</x>
+     <y>90</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>slider_c</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>spin_c</receiver>
+   <slot>syncValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>261</x>
+     <y>119</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>353</x>
+     <y>125</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>spin_c</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>slider_c</receiver>
+   <slot>syncValue(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>366</x>
+     <y>116</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>310</x>
+     <y>122</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>slider_d</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>spin_d</receiver>
+   <slot>syncValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>264</x>
+     <y>144</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>351</x>
+     <y>149</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>spin_d</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>slider_d</receiver>
+   <slot>syncValue(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>347</x>
+     <y>142</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>302</x>
+     <y>144</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

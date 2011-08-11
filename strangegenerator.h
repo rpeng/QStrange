@@ -15,6 +15,7 @@ public:
 
     int totalIterations; // how many times to loop through to draw a dot
 
+    virtual void setVars(float, float, float, float);
     virtual QPointF strangeFunction(QPointF); // attractor function
     virtual void initialize(); // allows the attractor to settle
     virtual void generate(); // generates a bunch of points
