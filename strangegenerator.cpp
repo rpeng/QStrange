@@ -26,7 +26,7 @@ StrangeGenerator::StrangeGenerator()
       1.5, -1.8, 1.6, 0.9
       */
 
-    totalIterations = 500000;
+    totalIterations = 400000;
 
     initialize();
 }
