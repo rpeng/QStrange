@@ -1,5 +1,6 @@
 #include "strangeworkerthread.h"
 #include <QMutexLocker>
+#include <QPixmap>
 #include <QColor>
 #include <QPainter>
 #include <QPointF>
@@ -44,7 +45,6 @@ void StrangeWorkerThread::run(){
                 QPointF newp = p * 80; // amplify
                 newp.rx() += 150; // center
                 newp.ry() += 150;
-
                 strangePainter->drawPoint(newp);
             }
             requiresUpdate = false;
