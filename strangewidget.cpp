@@ -19,6 +19,7 @@ strangewidget::strangewidget(QWidget *parent) :
 
     // extra ui settings
     this->connect(&mainThread,SIGNAL(sceneReady()),SLOT(drawAttractor()));
+    // make sure that you run the moc
 }
 
 void strangewidget::sendUpdate(float a, float b, float c, float d){
